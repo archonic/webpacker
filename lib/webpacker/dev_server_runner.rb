@@ -14,6 +14,8 @@ module Webpacker
     private
       def load_config
         @config_file = File.join(@app_path, "config/webpacker.yml")
+        puts "========= CONFIG_FILE IS #{@config_file}"
+        puts "========= NODE_ENV IS #{ENV['NODE_ENV']}"
         dev_server = YAML.load_file(@config_file)[ENV["NODE_ENV"]]["dev_server"]
 
         @hostname          = dev_server["host"]
